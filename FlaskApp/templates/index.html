@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>US Crime Rates</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/d3Style.css')}}">
+    <link href="{{ url_for('static', filename='css/map.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 jumbotron text-center">
+            <h1>Crime Rates in the United States</h1>
+            <p style = "font-size:20px">Use the interactive charts below to explore the dataset!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="well">
+                <h5>Select State:</h5>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                <style>#selDataset { color:black;}</style>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div id="line"></div>
+        </div>
+    </div>
+
+    <div class="row">
+            
+            <div class="col-md-12">
+                <div id="bar"></div>
+            </div>
+        
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <div class="well">
+                <h5>Select Year:</h5>
+                <select id="selYear" onchange="yearChanged(this.value)"></select>
+                <style>#selYear { color:black;}</style>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map-title">
+                    <h3>
+                        <font color="white">Crime rates per 100,000 population</font>
+                    </h3>
+                </div>
+                <div id="map"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-6  col-md-12">
+            <div id="map-title"><h3>
+                <font color="white">US Crime Rates 2014</font>
+            </h3></div>
+            <style>#map-title { color:black;}</style>
+            <button id="party-cr">Split</button>
+            <style>#party-cr { color:black;}</style>
+            <button id="combine-cr">Combine</button>
+            <style>#combine-cr { color:black;}</style>
+            <div id="bubble-cr">
+                <!-- We append our chart here. -->
+            </div>
+        </div>
+
+    </div>
+
+   
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.0.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.js"></script>
+
+<script src="{{ url_for('static', filename='js/crime-bubble.js') }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/d3.v3.min.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+
+
+
+</body>
+
+</html>
